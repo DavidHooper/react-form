@@ -419,7 +419,7 @@ class Form extends Component {
   }
 
   render () {
-    const { children, component, render } = this.props
+    const { children, component, render, ...passThroughProps } = this.props
 
     const formApi = this.getFormApi()
     const formState = this.getFormState()
@@ -433,7 +433,8 @@ class Form extends Component {
       formApi: {
         ...formApi,
         ...formState
-      }
+      },
+      ...passThroughProps
     }
 
     if (component) {
